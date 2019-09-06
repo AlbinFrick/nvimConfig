@@ -21,11 +21,24 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "Surround
 Plug 'https://tpope.io/vim/surround.git' 
+"Basically it's an extended standard library of Vim script functions
+Plug 'https://github.com/xolox/vim-misc.git'
+"Pandoc for compiling.
+Plug 'https://github.com/vim-pandoc/vim-pandoc.git'
+"Pretty colors when using markdown
+Plug 'godlygeek/tabuar'
+Plug 'plasticboy/vim-markdown'
+
+"vim Notes plugin for eazy note taking
+"Plug 'https://github.com/xolox/vim-notes.git'
+
 call plug#end()
 
+let g:vim_markdown_new_list_item_indent = 2
 let g:tex_flavor='latex'
 let g:vimtex_compiler_progname = 'nvr'
 set encoding=utf-8
+
 "colorscheme molokai
 colorscheme vim-material
 set background=dark
@@ -34,6 +47,11 @@ set rnu
 set noet ci pi sts=0 sw=4 ts=4
 set tw=75
 set spelllang=en,sv
+set autochdir
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 filetype plugin on
 "Autocomplete
@@ -75,8 +93,13 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "Compiling latex code             
-nnoremap <C-s> :w<Enter>:!pdflatex --shell-escape %<CR>
-
+nnoremap <C-s><C-l> :w<Enter>:!pdflatex --shell-escape %<CR>
+nnoremap <C-s><C-m> :w<Enter>:!pandoc "%" -o pdf/"%:r.pdf"<CR>
 "Spellchecking
 nnoremap <C-n> :set spell<CR>
 nnoremap <C-m> :set nospell<CR>
+
+"syntax coloring markdown
+nnoremap <C-s><C-1> :setfiletype markdown<CR>
+nnoremap <C-'> o<Enter>******<Enter><CR>
+inoremap <C-r> <Esc>o## 
