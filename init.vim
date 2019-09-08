@@ -1,6 +1,7 @@
 ﻿" Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+"pluggins
 call plug#begin('~/.local/share/nvim/plugged')
 "javascript syntax
 Plug 'https://github.com/pangloss/vim-javascript.git'
@@ -34,13 +35,23 @@ Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
+"let
 let g:vim_markdown_new_list_item_indent = 2
 let g:tex_flavor='latex'
 let g:vimtex_compiler_progname = 'nvr'
-set encoding=utf-8
+"Autocomplete
+let g:deoplete#enable_at_startup = 1
+"JavaScript config
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+let mapLeader = "\<Space>"
 
+
+"set
 "colorscheme molokai
 colorscheme vim-material
+set encoding=utf-8
 set background=dark
 set number 
 set rnu
@@ -52,33 +63,23 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-filetype plugin on
-"Autocomplete
-let g:deoplete#enable_at_startup = 1
-
-"JavaScript config
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-
 "Sets clipboard to +y or +p
 set clipboard+=unnamedplus
 
-let mapLeader = "\<Space>"
+"keybindings
+
+filetype plugin on
+
 "Goyo - centering the text in window for easier typing
-	"Goyo for half screen
-	nnoremap <Space>gh :Goyo 65x80<Enter>:set number<Enter>:set rnu<Enter> 
-	"Goyo for full screen
-	nnoremap <Space>gf :Goyo 120x120<Enter>:set number<Enter>:set rnu<Enter>:set tw=115<Enter> 
-	"Get out of Goyo
-	nnoremap <Space>på :Goyo!<CR> 
+"Goyo for half screen
+nnoremap <Space>gh :Goyo 65x80<Enter>:set number<Enter>:set rnu<Enter> 
+"Goyo for full screen
+nnoremap <Space>gf :Goyo 120x120<Enter>:set number<Enter>:set rnu<Enter>:set tw=115<Enter> 
+"Get out of Goyo
+nnoremap <Space>på :Goyo!<CR> 
 
 "Navigating between files
 nnoremap <Space>n :NERDTreeToggle<CR> 
-
-"Getting back to normal-mode
-inoremap jj <Esc>
 
 "Go to target
 nnoremap <Space><Space> :/(<>)<CR>"_dw:noh<CR>i
@@ -102,4 +103,11 @@ nnoremap <C-m> :set nospell<CR>
 "syntax coloring markdown
 nnoremap <C-s><C-1> :setfiletype markdown<CR>
 nnoremap <C-'> o<Enter>******<Enter><CR>
-inoremap <C-r> <Esc>o## 
+
+"Getting back to normal-mode
+inoremap jj <Esc>
+
+
+"auto commands
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
