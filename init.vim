@@ -27,9 +27,11 @@ Plug 'https://github.com/xolox/vim-misc.git'
 "Pandoc for compiling.
 Plug 'https://github.com/vim-pandoc/vim-pandoc.git'
 "Pretty colors when using markdown
-Plug 'godlygeek/tabuar'
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+"Colorschemes
+Plug 'https://github.com/rafi/awesome-vim-colorschemes.git'
 "vim Notes plugin for eazy note taking
 "Plug 'https://github.com/xolox/vim-notes.git'
 
@@ -39,6 +41,7 @@ call plug#end()
 let g:vim_markdown_new_list_item_indent = 2
 let g:tex_flavor='latex'
 let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_general_viewer = 'zathura'
 "Autocomplete
 let g:deoplete#enable_at_startup = 1
 "JavaScript config
@@ -48,9 +51,8 @@ let g:javascript_plugin_flow = 1
 let mapLeader = "\<Space>"
 
 
-"set
-"colorscheme molokai
-colorscheme vim-material
+"set colorscheme molokai
+colorscheme gruvbox
 set encoding=utf-8
 set background=dark
 set number 
@@ -94,11 +96,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "Compiling latex code             
-nnoremap <C-s><C-l> :w<Enter>:!pdflatex --shell-escape %<CR>
+"nnoremap <C-s><C-l> :w<Enter>:!pdflatex --shell-escape %<CR> <-- windows
+nnoremap <C-s><C-l> :w<Enter>:!pdflatex "%"<CR>
 nnoremap <C-s><C-m> :w<Enter>:!pandoc "%" -o pdf/"%:r.pdf"<CR>
 "Spellchecking
 nnoremap <C-n> :set spell<CR>
 nnoremap <C-m> :set nospell<CR>
+"Autocorrect to best replacement
+nnoremap <C-r> 1z=
 
 "syntax coloring markdown
 nnoremap <C-s><C-1> :setfiletype markdown<CR>
@@ -107,7 +112,8 @@ nnoremap <C-'> o<Enter>******<Enter><CR>
 "Getting back to normal-mode
 inoremap jj <Esc>
 
-
+"suround word under cursor
+nnoremap <C-S-s> ysiw"<CR>
 "auto commands
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview 
