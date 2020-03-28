@@ -5,55 +5,31 @@
 call plug#begin('~/.local/share/nvim/plugged')
 "javascript syntax
 Plug 'https://github.com/pangloss/vim-javascript.git'
-
 "Latex
 Plug 'lervag/vimtex'
-
 "Distraction free vim
 Plug 'junegunn/goyo.vim'
-
+"Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "NERDTree - navigation
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
-
 "Color scheme
 "Plug 'flazz/vim-colorschemes'
 Plug 'hzchirs/vim-material'
-
 ""Snippets
 "Track the engine.
 Plug 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
 "Surround
 Plug 'https://tpope.io/vim/surround.git' 
-
 "Basically it's an extended standard library of Vim script functions
 Plug 'https://github.com/xolox/vim-misc.git'
-
-"Pandoc for compiling.
 Plug 'https://github.com/vim-pandoc/vim-pandoc.git'
-
-"Pretty colors when using markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-"Colorschemes
-"Plug 'https://github.com/rafi/awesome-vim-colorschemes.git'
-"Plug 'hzchirs/vim-material'
 Plug 'ayu-theme/ayu-vim'
-
-"Dart help... not working correctly.
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
-
-"TEST
-"Plug 'https://github.com/ycm-core/YouCompleteMe.git'
-
 Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
@@ -82,7 +58,7 @@ set number
 set rnu
 set noet ci pi sts=0 sw=4 ts=4
 set tw=75
-set spelllang=en
+set spelllang=en,sv
 set autochdir
 set smartindent
 set tabstop=2
@@ -123,7 +99,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-s><C-l> :w<Enter>:!pdflatex "%" <CR>
 
 "updates the bibliography to the document.
-nnoremap <C-s><C-b> :w<Enter>:!biber "%:r" <CR>
+nnoremap <C-s><C-s> :w<Enter>:!biber "%:r" <CR>
 
 "Compiling markdown to pdf in seperate folder
 nnoremap <C-s><C-m> :w<Enter>:!pandoc "%" -s -o pdf/"%:r.pdf"<CR>
@@ -147,3 +123,4 @@ nnoremap <C-S-s> ysiw"<CR>
 "hi Normal guibg=NONE ctermbg=NONE
 autocmd BufNewFile,BufRead *.tex set syntax=tex
 autocmd BufNewFile,BufRead *.md set syntax=markdown
+
