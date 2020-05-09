@@ -11,6 +11,8 @@ Plug 'lervag/vimtex'
 Plug 'junegunn/goyo.vim'
 "Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 "NERDTree - navigation
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -40,12 +42,19 @@ let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_view_general_viewer = 'zathura'
 "Autocomplete
 let g:deoplete#enable_at_startup = 1
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger='<Nop>'
+let g:UltiSnipsJumpForwardTrigger = '<TAB>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "JavaScript config
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 let mapLeader = "\<Space>"
-
 
 "set colorscheme molokai
 "set background=dark
@@ -67,6 +76,9 @@ set shiftwidth=2
 set guifont=Roboto\ 14
 "Sets clipboard to +y or +p
 set clipboard+=unnamedplus
+
+"Transparency
+hi Normal guibg=NONE ctermbg=NONE
 
 "keybindings
 
@@ -104,6 +116,8 @@ nnoremap <C-s><C-s> :w<Enter>:!biber "%:r" <CR>
 "Compiling markdown to pdf in seperate folder
 nnoremap <C-s><C-m> :w<Enter>:!pandoc "%" -s -o pdf/"%:r.pdf"<CR>
 
+"Compiling markdown to presentation pdf
+nnoremap <C-s><C-b> :w<Enter>:!pandoc "%" -t beamer -o "%:r.pdf"<CR>
 "Spellchecking
 nnoremap <C-n> :set spell<CR>
 nnoremap <C-m> :set nospell<CR>
@@ -120,7 +134,31 @@ nnoremap <C-S-s> ysiw"<CR>
 "autocmd BufWinLeave *.* mkview
 "autocmd BufWinEnter *.* silent loadview 
 
+
 "hi Normal guibg=NONE ctermbg=NONE
 autocmd BufNewFile,BufRead *.tex set syntax=tex
 autocmd BufNewFile,BufRead *.md set syntax=markdown
 
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
