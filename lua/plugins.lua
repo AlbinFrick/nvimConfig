@@ -45,4 +45,8 @@ packer.startup(function(use)
   use 'dinhhuy258/git.nvim'
 
   use 'kdheepak/lazygit.nvim' -- LazyGit
+
+  use 's1n7ax/nvim-terminal' -- built in terminal
+  use 'terrortylor/nvim-comment' -- comment toggler
+  use 'github/copilot.vim' -- copilot
 end)

@@ -12,9 +12,11 @@ ts.setup {
   },
   ensure_installed = {
     'tsx',
+    'typescript',
     'lua',
     'json',
     'css',
+    'svelte',
   },
   autotag = {
     enable = true
