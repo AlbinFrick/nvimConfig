@@ -9,6 +9,7 @@ vim.wo.relativenumber = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
+vim.opt.mouse = 'a'
 vim.opt.backup = false
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1

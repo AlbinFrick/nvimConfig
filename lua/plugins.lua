@@ -48,5 +48,9 @@ packer.startup(function(use)
 
   use 's1n7ax/nvim-terminal' -- built in terminal
   use 'terrortylor/nvim-comment' -- comment toggler
+  use 'folke/todo-comments.nvim' -- Todo highlighting
+
   use 'github/copilot.vim' -- copilot
+
+  use 'ThePrimeagen/harpoon' -- Harpoon navigation
 end)

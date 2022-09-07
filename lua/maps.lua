@@ -37,7 +37,7 @@ keymap.set('n', '<C-S-j>', '<C-w>-')
 -- Close window
 keymap.set('n', '<leader>x', ':q <CR>')
 -- Close all windows/panes
-keymap.set('n', '<leader>xa', ':qa <CR>')
+keymap.set('n', '<leader>q', ':qa <CR>')
 
 -- LazyGit
 keymap.set('n', '<leader>gg', ':LazyGit<CR>')
@@ -51,7 +51,12 @@ keymap.set('v', '<leader>m', ":'<,'>CommentToggle<CR>")
 
 -- Auto complete code suggestion
 keymap.set('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>')
-keymap.set('n', '<leader>d', ':lua vim.diagnostic.open_float()<CR>')
+keymap.set('v', '<leader>.', ":'<,'>lua vim.lsp.buf.code_action()<CR>")
+-- Open diagnostic in floating window
+keymap.set('n', '<leader>p', ':lua vim.diagnostic.open_float()<CR>')
+-- Jump to definitions
+keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
+
 
 ------ Insertmode --------
 
