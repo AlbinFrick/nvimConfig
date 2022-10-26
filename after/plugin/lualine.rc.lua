@@ -1,24 +1,25 @@
-local status, lualine = pcall(require, 'lualine') 
+local status, lualine = pcall(require, 'lualine')
 if (not status) then return end
 
-lualine.setup{
+lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'solarized_dark',
-    section_separators = { left = '', right = ''}, 
-    component_separators = { left = '', right = ''}, 
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     desabled_filetypes = {}
   },
-  sections = { 
-    lualine_a = { 'mode' }, 
-    lualine_b = { 'branch' }, 
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
     lualine_c = { {
       'filename',
-      file_statue = true, 
-      path = 0
-    } }, 
+      file_statue = true,
+      path = 1
+    } },
     lualine_x = {
-      { 'diagnostics', sources = { 'nvim_diagnostic' }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' '}},
+      { 'diagnostics', sources = { 'nvim_diagnostic' }, symbols = { error = ' ', warn = ' ', info = ' ',
+        hint = ' ' } },
       'encoding',
       'filetype'
     },
@@ -28,11 +29,11 @@ lualine.setup{
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {{
+    lualine_c = { {
       'filename',
       file_status = true,
       path = 1 -- 1 = relative path
-    }},
+    } },
     lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {},

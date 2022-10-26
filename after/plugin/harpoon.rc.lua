@@ -1,14 +1,15 @@
 local status, harpoon = pcall(require, "harpoon")
 if (not status) then return end
 
+local m = require('albinfrick.keymap')
 
 
-vim.keymap.set('n', ';h', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
-vim.keymap.set('n', 'öh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>')
-vim.keymap.set('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>')
-vim.keymap.set('n', '<leader>a', ':lua require("harpoon.ui").nav_file(1)<CR>')
-vim.keymap.set('n', '<leader>s', ':lua require("harpoon.ui").nav_file(2)<CR>')
-vim.keymap.set('n', '<leader>d', ':lua require("harpoon.ui").nav_file(3)<CR>')
-vim.keymap.set('n', '<leader>f', ':lua require("harpoon.ui").nav_file(4)<CR>')
+m.nnoremap(';h', function() require("harpoon.ui").toggle_quick_menu() end)
+m.nnoremap('öh', function() require("harpoon.ui").toggle_quick_menu() end)
+m.nnoremap('<leader>ha', function() require("harpoon.mark").add_file() end)
+m.nnoremap('<leader>a', function() require("harpoon.ui").nav_file(1) end)
+m.nnoremap('<leader>s', function() require("harpoon.ui").nav_file(2) end)
+m.nnoremap('<leader>d', function() require("harpoon.ui").nav_file(3) end)
+m.nnoremap('<leader>f', function() require("harpoon.ui").nav_file(4) end)
 
 harpoon.setup {}

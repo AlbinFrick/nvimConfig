@@ -48,6 +48,7 @@ vim.keymap.set('n', 'öf',
   function()
     builtin.find_files({
       no_ignore = false,
+      file_ignore_patterns = { ".git/" },
       hidden = true
     })
   end)
@@ -55,6 +56,7 @@ vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
       no_ignore = false,
+      file_ignore_patterns = { ".git/" },
       hidden = true
     })
   end)

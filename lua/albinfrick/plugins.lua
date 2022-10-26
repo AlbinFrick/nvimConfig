@@ -7,10 +7,10 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
+  -- use {
+  --   'svrana/neosolarized.nvim',
+  --   requires = { 'tjdevries/colorbuddy.nvim' }
+  -- }
   use 'olimorris/onedarkpro.nvim'
   use 'kyazdani42/nvim-web-devicons' -- Filled icons
   use 'glepnir/lspsaga.nvim' -- LSP UIs
@@ -31,8 +31,8 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
+  -- use 'windwp/nvim-autopairs'
+  -- use 'windwp/nvim-ts-autotag'
 
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -50,7 +50,15 @@ packer.startup(function(use)
   use 'terrortylor/nvim-comment' -- comment toggler
   use 'folke/todo-comments.nvim' -- Todo highlighting
 
-  use 'github/copilot.vim' -- copilot
-
   use 'ThePrimeagen/harpoon' -- Harpoon navigation
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+
+  use({ 'kylechui/nvim-surround', tag = "*" }) -- surround
+
 end)
