@@ -1,3 +1,4 @@
+---MAPS
 local m = require('albinfrick.keymap')
 
 ------ Global --------
