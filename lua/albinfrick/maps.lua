@@ -33,7 +33,8 @@ m.nnoremap('<C-S-l>', '<C-w><')
 m.nnoremap('<C-S-k>', '<C-w>+')
 m.nnoremap('<C-S-j>', '<C-w>-')
 
-
+-- Save file
+m.nnoremap('<leader>sf', ':w <CR>')
 -- Close window
 m.nnoremap('<leader>x', ':q <CR>')
 -- Close all windows/panes
