@@ -17,6 +17,8 @@ ts.setup {
     'json',
     'css',
     'svelte',
+    'vue',
+    'astro',
   },
   autotag = {
     enable = true

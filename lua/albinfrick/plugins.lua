@@ -7,11 +7,8 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
-  use 'olimorris/onedarkpro.nvim'
+  -- use { "catppuccin/nvim", as = "catppuccin" }
+  use { "ellisonleao/gruvbox.nvim" }
   use 'kyazdani42/nvim-web-devicons' -- Filled icons
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'hoob3rt/lualine.nvim' -- Statusline
@@ -25,6 +22,7 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diganostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP
@@ -44,8 +42,6 @@ packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim'
 
-  use 'kdheepak/lazygit.nvim' -- LazyGit
-
   use 's1n7ax/nvim-terminal' -- built in terminal
   use 'terrortylor/nvim-comment' -- comment toggler
   use 'folke/todo-comments.nvim' -- Todo highlighting
@@ -61,4 +57,5 @@ packer.startup(function(use)
 
   use({ 'kylechui/nvim-surround', tag = "*" }) -- surround
 
+  use 'posva/vim-vue' -- vue syntax
 end)

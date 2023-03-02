@@ -2,11 +2,14 @@ local m = require('albinfrick.keymap')
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
-saga.init_lsp_saga {
-  server_filetype_map = {
-    typescript = "typescript",
-  }
-}
+
+saga.setup({ ui = { border = "rounded", theme = "round" } })
+-- saga.init_lsp_saga {
+--   server_filetype_map = {
+--     typescript = "typescript",
+--     vue = "vuels",
+--   }
+-- }
 
 local opts = { silent = true }
 

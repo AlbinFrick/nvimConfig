@@ -8,6 +8,9 @@ vim.g.mapleader = ' '
 
 ------ Normalmode --------
 
+-- format file
+m.nnoremap('<leader>ff', ':Prettier <CR>')
+
 -- Increment/decrement
 m.nnoremap('+', '<C-a>')
 m.nnoremap('-', '<C-x>')
@@ -35,15 +38,15 @@ m.nnoremap('<C-S-k>', '<C-w>+')
 m.nnoremap('<C-S-j>', '<C-w>-')
 
 -- Save file
-m.nnoremap('<leader>sf', ':w <CR>')
+m.nnoremap('<leader>w', ':w <CR>')
+m.nnoremap('<leader>sa', ':wa <CR>')
 -- Close window
 m.nnoremap('<leader>x', ':q <CR>')
 -- Close all windows/panes
 m.nnoremap('<leader>q', ':qa <CR>')
 
 -- LazyGit
-m.nnoremap('<leader>lg', ':LazyGit<CR>')
-
+-- m.nnoremap('<leader>lg', ':LazyGit<CR>')
 
 -- Toggle line Comment
 m.nnoremap('<leader>m', ':CommentToggle<CR>')

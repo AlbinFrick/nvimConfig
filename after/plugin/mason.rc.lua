@@ -7,9 +7,14 @@ mason.setup {}
 lspconfig.setup {
   ensure_installed = {
     'tailwindcss',
-    'svelte'
+    'svelte',
+    'vuels',
+    'astro'
   }
 }
 
 require 'lspconfig'.tailwindcss.setup {}
 require 'lspconfig'.svelte.setup {}
+require 'lspconfig'.vuels.setup {}
+require 'lspconfig'.astro.setup {}
+

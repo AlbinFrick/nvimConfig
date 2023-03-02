@@ -9,7 +9,7 @@ local on_attach = function(client, bufnr)
     vim.cmd([[
       augroup Format
         autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+        autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }
       augroup END
     ]])
   end
@@ -21,7 +21,7 @@ nvim_lsp.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" }
 }
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
@@ -42,7 +42,7 @@ nvim_lsp.sumneko_lua.setup {
 nvim_lsp.emmet_ls.setup({
   -- on_attach = on_attach,
   capabilities = vim.lsp.protocol.make_client_capabilities(),
-  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'vue', 'astro' },
   init_options = {
     html = {
       options = {

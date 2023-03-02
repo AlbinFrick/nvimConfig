@@ -11,6 +11,7 @@ vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.opt.updatetime = 50
 vim.opt.backup = false
+vim.opt.undofile = true
 vim.opt.mouse = 'a'
 vim.opt.showcmd = true
 vim.opt.cmdheight = 1
@@ -32,6 +33,7 @@ vim.opt.wrap = false -- No wrap lines
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.signcolumn = 'yes'
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = '*',
@@ -40,3 +42,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
+
+vim.cmd.colorscheme "gruvbox"

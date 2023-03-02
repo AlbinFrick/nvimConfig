@@ -14,5 +14,6 @@ prettier.setup {
     'scss',
     'less',
     'svelte',
+    'vue',
   }
 }
